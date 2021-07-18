@@ -1,16 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelMovement 
+public class LevelMovement
 {
-    void Start()
+    public void Move(Rigidbody rigidbody, float speed)
     {
-        
-    }
-    
-    void Update()
-    {
-        
+        rigidbody.AddForce(new Vector3(speed *- 1, 0, 0));
     }
 }
