@@ -1,4 +1,7 @@
 using System.Collections.Generic;
+using System.ComponentModel;
+using GameSateMachine;
+using TMPro;
 using UnityEngine;
 using Zenject;
 using Random = System.Random;
@@ -6,7 +9,6 @@ using Vector3 = UnityEngine.Vector3;
 
 public class LevelCreator
 {
-   public ObjectPool Pool { set => _objectPool ??= value; }
    public CameraBounds CameraBounds { set => _cameraBounds ??= value; }
    public string Seed { set => _seed ??= value; }
    public Transform Parent { set => _parent ??= value; }
@@ -14,11 +16,7 @@ public class LevelCreator
    {
       set { if (_countInitChunk == 0) _countInitChunk = value; }
    }
-   public float Speed
-   {
-      set { if (_speed != 0) _speed = value; }
-   }
-   
+
    private Chunk[] _prefabs;
    private Queue<Chunk> _activeChunks = new Queue<Chunk>();
    private ObjectPool _objectPool;
@@ -28,24 +26,32 @@ public class LevelCreator
    private int _countInitChunk;
    private Transform _parent;
    private Chunk _finiteChunk;
-   private float _speed;
+   private PlayerStats _playerStats;
+   private GameState _gameState;
+   //private DiContainer 
 
    [Inject]
-   private void Constructor(Chunk[] prefabs)
+   private void Constructor(Chunk[] prefabs, PlayerStats playerStats, 
+      ObjectPool objectPool, GameState gameState, DiContainer container)
    {
+      _gameState = gameState;
+      _objectPool = objectPool;
+      _playerStats = playerStats;
       _prefabs = prefabs;
    }
 
    public void SpawnInitialChunks()
    {
       _randomHash = new Random(_seed.GetHashCode());
-      var randomValue = _randomHash.Next(0, _prefabs.Length);
+      
       var position = new Vector3(_cameraBounds.LeftBorder.x - 1, 0, 0);
       for (var index = 0; index < _countInitChunk; index++)
       {
+         var randomValue = _randomHash.Next(0, _prefabs.Length);
+         if (index != 0) position = _finiteChunk.RightBorder.position;
          var chunk =  Spawn(randomValue, position);
          if (index == 0) SetIsFirst();
-         if (index == _countInitChunk - 1) _finiteChunk = chunk;
+         _finiteChunk = chunk;
       }
    }
 
@@ -62,13 +68,14 @@ public class LevelCreator
    private Chunk Spawn(int id, Vector3 position)
    {
       var result = GameObject.Instantiate(_prefabs[id], position, Quaternion.identity, _parent);
-      Debug.Log(_activeChunks.Count);
       _activeChunks.Enqueue(result);
+      Debug.Log(_activeChunks.Count);
       result.Id = id;
       result.Creator = this;
+      result.Stats = _playerStats;
       result.Pool = _objectPool;
+      result.State = _gameState;
       result.CameraBounds = _cameraBounds;
-      result.Speed = _speed;
       return result;
    }
 
@@ -83,5 +90,4 @@ public class LevelCreator
       var firstChunk = _activeChunks.Peek();
       firstChunk.IsFirst = true;
    }
-
 }

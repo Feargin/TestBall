@@ -12,12 +12,18 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/ObjectPool.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/LevelMovement.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Installers/LevelInstaller.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Player/Ball.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/Level.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/LevelCreator.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Installers/LevelInstaller.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/DeathZone.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Installers/GameInstaller.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/Chunk.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/LevelCreator.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/ScoreZone.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Global/PlayerStats.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Global/DisplayStats.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1vUauNkxVDRSxAnyIS9LLnFTjxt" />
@@ -68,6 +74,13 @@
       <workItem from="1626624787468" duration="1499000" />
       <workItem from="1626626602514" duration="1455000" />
       <workItem from="1626628702948" duration="1776000" />
+      <workItem from="1626630656723" duration="1783000" />
+      <workItem from="1626632604677" duration="1777000" />
+      <workItem from="1626634473217" duration="865000" />
+      <workItem from="1626636284770" duration="1778000" />
+      <workItem from="1626638107119" duration="1775000" />
+      <workItem from="1626639919846" duration="1798000" />
+      <workItem from="1626641764254" duration="1046000" />
     </task>
     <servers />
   </component>

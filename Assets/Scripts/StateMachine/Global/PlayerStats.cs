@@ -1,4 +1,6 @@
 
+using UnityEngine;
+
 public class PlayerStats
 {
     internal event System.Action<TypeStats, int> OnStatChange;

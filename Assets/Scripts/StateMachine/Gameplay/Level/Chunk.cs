@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
+using GameSateMachine;
 using NaughtyAttributes;
+using TMPro;
 using UnityEngine;
 
 public class Chunk : MonoBehaviour
@@ -11,10 +13,8 @@ public class Chunk : MonoBehaviour
         get => _id;
         set { if (_id < 0) _id = value; }
     }
-    public float Speed
-    {
-        set { if (_speed == 0) _speed = value; }
-    }
+    public PlayerStats Stats { get; set; }
+    public GameState State { get; set; }
     public CameraBounds CameraBounds { set => _cameraBounds ??= value; }
     public bool IsFirst { set { if (!_isFirst) _isFirst = value; } }
     public ObjectPool Pool { set => _objectPool ??= value; }
@@ -25,28 +25,16 @@ public class Chunk : MonoBehaviour
     [Header("For the paws of a game designer.")]
     [SerializeField] private TypeChunk _type;
     [HorizontalLine(color: EColor.Red)]
-    [Foldout("For developers only!")][SerializeField] private Transform _rightBorder;
+    [Foldout("For developers only!")]
+    [SerializeField] private Transform _rightBorder;
     private int _id = -1;
     private CameraBounds _cameraBounds;
     private bool _isFirst;
     private ObjectPool _objectPool;
     private LevelCreator _creator;
-    private LevelMovement _levelMovement = new LevelMovement();
-    private Rigidbody _rigidbody;
-    private float _speed;
 
 
     private void OnEnable() => StartCoroutine(StartCheck());
-
-    private void Start()
-    {
-        _rigidbody = gameObject.GetComponent<Rigidbody>();
-    }
-
-    private void FixedUpdate()
-    {
-        _levelMovement.Move(_rigidbody, _speed);
-    }
 
     private IEnumerator StartCheck()
     {

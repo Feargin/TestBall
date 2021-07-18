@@ -17,7 +17,6 @@ public class GameInstaller : MonoInstaller
         {
             if (state.Type == TypeStates.Gameplay) _gameplay = state;
         }
-        Container.BindInstance(_gameplay).WhenInjectedInto<DeathZone>();
-        Container.BindInstance(_gameplay).WhenInjectedInto<DisplayStats>();
+        Container.BindInstance(_gameplay).WhenInjectedInto<LevelCreator>();
     }
 }

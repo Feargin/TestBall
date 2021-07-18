@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7624640639109272962, guid: 827da51f9ce03e743b45291307d90ddc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7826734114135818376, guid: 827da51f9ce03e743b45291307d90ddc, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -83,5 +87,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chunk Variant 4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 827da51f9ce03e743b45291307d90ddc, type: 3}

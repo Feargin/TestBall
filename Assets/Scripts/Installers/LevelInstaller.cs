@@ -14,7 +14,8 @@ public class LevelInstaller : MonoInstaller
     {
         Container.Bind<LevelCreator>().FromNew().AsSingle().WhenInjectedInto<Level>();
         Container.Bind<CameraBounds>().FromNew().AsSingle().WhenInjectedInto<Level>();
-        Container.Bind<ObjectPool>().FromNew().AsSingle().WhenInjectedInto<Level>();
+        Container.Bind<ObjectPool>().FromNew().AsSingle().WhenInjectedInto<LevelCreator>();
+        Container.Bind<LevelMovement>().FromNew().AsSingle().WhenInjectedInto<Level>();
         Container.BindInstance(Prefabs).WhenInjectedInto<LevelCreator>();
 
         Container.Bind<BallColision>().FromNew().AsSingle().WhenInjectedInto<Ball>().NonLazy();

@@ -3,7 +3,7 @@ using System.Linq;
 
 public class ObjectPool
 {
-    private List<Chunk> _chunksPool;
+    private List<Chunk> _chunksPool = new List<Chunk>();
 
     public void AddChank(Chunk chunk)
     {

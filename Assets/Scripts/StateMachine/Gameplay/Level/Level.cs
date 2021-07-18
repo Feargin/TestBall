@@ -1,13 +1,17 @@
+using System;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Timeline;
 using Zenject;
+using Random = UnityEngine.Random;
 
 public class Level : MonoBehaviour
 {
     private LevelCreator _levelCreator;
     private CameraBounds _cameraBounds;
-    
+    private Rigidbody _rigidbody;
+    private LevelMovement _levelMovement;
+
     [HorizontalLine(color: EColor.Green)]
     [Header("For the paws of a game designer.")]
     [SerializeField] private string _seed;
@@ -18,22 +22,27 @@ public class Level : MonoBehaviour
 
     [Inject]
     private void Constructor(LevelCreator levelCreator, 
-         CameraBounds cameraBounds, ObjectPool objectPool)
+          LevelMovement levelMovement, CameraBounds cameraBounds)
     {
         _cameraBounds = cameraBounds;
+        _levelMovement = levelMovement;
         _levelCreator = levelCreator;
-        _levelCreator.Pool = objectPool;
         _levelCreator.CameraBounds = _cameraBounds;
         _levelCreator.Seed = _seed;
-        _levelCreator.Speed = _speed;
         _levelCreator.Parent = transform;
         _levelCreator.CountInitChunk = CountInitChunk;
     }
 
     private void Start()
     {
-        if(_seed is null) _seed = "" + Random.Range(-999f, 999f);
+        _seed ??= "" + Random.Range(-999f, 999f);
         _cameraBounds.InitBorders();
         _levelCreator.SpawnInitialChunks();
+        _rigidbody = GetComponent<Rigidbody>();
+    }
+
+    private void FixedUpdate()
+    {
+        _levelMovement.Move(_rigidbody, _speed, transform.position);
     }
 }

@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    
     private BallColision _ballColision;
     private CustomGravity _customGravity;
     private Rigidbody _rigidbody;
