@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class Chunk : MonoBehaviour
@@ -17,11 +18,14 @@ public class Chunk : MonoBehaviour
     public CameraBounds CameraBounds { set => _cameraBounds ??= value; }
     public bool IsFirst { set { if (!_isFirst) _isFirst = value; } }
     public ObjectPool Pool { set => _objectPool ??= value; }
-    public Transform RightBorder { get; private set; }
+    public Transform RightBorder => _rightBorder;
     public LevelCreator Creator { set => _creator ??= value; }
     
-
+    [HorizontalLine(color: EColor.Green)]
+    [Header("For the paws of a game designer.")]
     [SerializeField] private TypeChunk _type;
+    [HorizontalLine(color: EColor.Red)]
+    [Foldout("For developers only!")][SerializeField] private Transform _rightBorder;
     private int _id = -1;
     private CameraBounds _cameraBounds;
     private bool _isFirst;
@@ -55,7 +59,7 @@ public class Chunk : MonoBehaviour
 
     private void CheckLevelBounds()
     {
-        if (!(RightBorder.position.x < _cameraBounds.LeftBorder.x - 2)) return;
+        if (!(_rightBorder.position.x < _cameraBounds.LeftBorder.x - 2)) return;
         _objectPool.AddChank(this);
         _creator.SpawnChunk();
         gameObject.SetActive(false);

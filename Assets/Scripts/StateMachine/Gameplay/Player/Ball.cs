@@ -11,6 +11,7 @@ public class Ball : MonoBehaviour
     
     [InfoBox("The force of the influence of gravity (mass is taken into account).", EInfoBoxType.Normal)]
     [HorizontalLine(color: EColor.Green)]
+    [Header("For the paws of a game designer.")]
     [SerializeField, Range(5, 25)] 
     private int _gravityScale = 15;
 

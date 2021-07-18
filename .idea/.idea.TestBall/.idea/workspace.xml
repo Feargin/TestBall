@@ -13,9 +13,11 @@
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/LevelMovement.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/Chunk.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/LevelCreator.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Installers/LevelInstaller.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Player/Ball.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/Level.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/LevelCreator.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/Chunk.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1vUauNkxVDRSxAnyIS9LLnFTjxt" />
@@ -64,7 +66,8 @@
       <workItem from="1626621159649" duration="1775000" />
       <workItem from="1626622968738" duration="1775000" />
       <workItem from="1626624787468" duration="1499000" />
-      <workItem from="1626626602514" duration="760000" />
+      <workItem from="1626626602514" duration="1455000" />
+      <workItem from="1626628702948" duration="1776000" />
     </task>
     <servers />
   </component>

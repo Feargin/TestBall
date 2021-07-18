@@ -8,13 +8,14 @@ public class LevelInstaller : MonoInstaller
     [Foldout("For developers only!")] public Camera GameplayCamera;
     [Foldout("For developers only!")] public Animator BallAnimator;
     [Foldout("For developers only!")] public Rigidbody BallRigidbody;
+    [Foldout("For developers only!")] public Chunk[] Prefabs;
     
     public override void InstallBindings()
     {
         Container.Bind<LevelCreator>().FromNew().AsSingle().WhenInjectedInto<Level>();
-        Container.Bind<LevelMovement>().FromNew().AsSingle().WhenInjectedInto<Level>();
         Container.Bind<CameraBounds>().FromNew().AsSingle().WhenInjectedInto<Level>();
         Container.Bind<ObjectPool>().FromNew().AsSingle().WhenInjectedInto<Level>();
+        Container.BindInstance(Prefabs).WhenInjectedInto<LevelCreator>();
 
         Container.Bind<BallColision>().FromNew().AsSingle().WhenInjectedInto<Ball>().NonLazy();
         Container.BindInstance(BallAnimator).WhenInjectedInto<Ball>();

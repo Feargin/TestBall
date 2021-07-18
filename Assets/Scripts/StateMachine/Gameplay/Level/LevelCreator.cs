@@ -12,7 +12,7 @@ public class LevelCreator
    public Transform Parent { set => _parent ??= value; }
    public int CountInitChunk 
    {
-      set { if (_countInitChunk != 0) _countInitChunk = value; }
+      set { if (_countInitChunk == 0) _countInitChunk = value; }
    }
    public float Speed
    {
@@ -20,7 +20,7 @@ public class LevelCreator
    }
    
    private Chunk[] _prefabs;
-   private Queue<Chunk> _activeChunks;
+   private Queue<Chunk> _activeChunks = new Queue<Chunk>();
    private ObjectPool _objectPool;
    private CameraBounds _cameraBounds;
    private string _seed;
@@ -62,6 +62,7 @@ public class LevelCreator
    private Chunk Spawn(int id, Vector3 position)
    {
       var result = GameObject.Instantiate(_prefabs[id], position, Quaternion.identity, _parent);
+      Debug.Log(_activeChunks.Count);
       _activeChunks.Enqueue(result);
       result.Id = id;
       result.Creator = this;
