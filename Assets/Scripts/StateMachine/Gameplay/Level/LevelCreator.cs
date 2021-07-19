@@ -49,23 +49,24 @@ namespace Gameplay
             var randomValue = _randomHash.Next(0, _prefabs.Length);
             if (index != 0) position = _activeChunks[index - 1].RightBorder.position;
             var chunk =  Spawn(randomValue, position);
+            _activeChunks.Add(chunk);
             if (index == 0) SetIsFirst();
          }
       }
 
       public void SpawnChunk()
       {
-         var position = _activeChunks[0].RightBorder.position;
+         var position = _activeChunks[_activeChunks.Count - 1].RightBorder.position;
          var randomValue = _randomHash.Next(0, _prefabs.Length);
-         var chunk = Transfer(randomValue) is {} ? Transfer(randomValue) : Spawn(randomValue, position);
+         var chunk = CheckTransfer(randomValue) is {} ? Transfer(randomValue, position) : Spawn(randomValue, position);
          _activeChunks.Remove(_activeChunks[0]);
+         _activeChunks.Add(chunk);
          SetIsFirst();
       }
 
       private Chunk Spawn(int id, Vector3 position)
       {
-         var result = GameObject.Instantiate(_prefabs[id], position, Quaternion.identity, _parent);
-         _activeChunks.Add(result);
+         var result = Object.Instantiate(_prefabs[id], position, Quaternion.identity, _parent);
          result.Id = id;
          result.Creator = this;
          result.Stats = _playerStats;
@@ -75,9 +76,15 @@ namespace Gameplay
          return result;
       }
 
-      private Chunk Transfer(int id)
+      private Chunk CheckTransfer(int id)
       {
-         var result = _objectPool.TakeChunk(id);
+         var result = _objectPool.CheckTakeChunk(id);
+         return result;
+      }
+
+      private Chunk Transfer(int id, Vector3 position)
+      {
+         var result = _objectPool.TakeChunk(id, position);
          return result;
       }
 

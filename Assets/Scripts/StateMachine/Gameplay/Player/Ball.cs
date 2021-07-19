@@ -1,3 +1,4 @@
+using System;
 using NaughtyAttributes;
 using UnityEngine;
 using Zenject;
@@ -22,6 +23,11 @@ namespace Gameplay
             _rigidbody = rigidbody;
             _customGravity = customGravity;
             _customGravity.BallRigibody = _rigidbody;
+        }
+
+        private void Start()
+        {
+            InvertGravity();
         }
 
         public void InvertGravity()

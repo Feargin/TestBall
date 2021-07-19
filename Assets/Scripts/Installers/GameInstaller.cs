@@ -6,7 +6,7 @@ using Zenject;
 
 namespace Installers
 {
-    public sealed class GameInstaller : MonoInstaller
+    internal sealed class GameInstaller : MonoInstaller
     {
         [Foldout("For developers only!")] public GameState[] States;
         private GameState _gameplay;

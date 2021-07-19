@@ -22,17 +22,12 @@ namespace Global
     
         private void SetStats(TypeStats type, int value)
         {
-            switch (type)
+            _score.text = type switch
             {
-                case TypeStats.Score:
-                    print(_score.text);
-                    _score.text = "" + (int.Parse(_score.text) + value);
-                    break;
-                case TypeStats.Other:
-                    throw new Exception("Invalid type!");
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
-            }
+                TypeStats.Score => "" + (int.Parse(_score.text) + value),
+                TypeStats.Other => throw new Exception("Invalid type!"),
+                _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
+            };
         }
     }
 }

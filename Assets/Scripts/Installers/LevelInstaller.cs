@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Installers
 {
-    public sealed class LevelInstaller : MonoInstaller
+    internal sealed class LevelInstaller : MonoInstaller
     {
         [Foldout("For developers only!")] public Ball PlayerBall;
         [Foldout("For developers only!")] public Camera GameplayCamera;

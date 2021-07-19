@@ -13,19 +13,19 @@
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/LevelMovement.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Player/Ball.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/ObjectPool.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/DeathZone.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/ScoreZone.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Global/PlayerStats.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/CameraBounds.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/Level.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Installers/GameInstaller.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Installers/LevelInstaller.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/PlayerInput.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Installers/UIInstaller.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Global/DisplayStats.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/Chunk.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Global/DisplayStats.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Installers/UIInstaller.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Installers/LevelInstaller.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Installers/GameInstaller.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Player/Ball.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/ObjectPool.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/LevelCreator.cs" />
     </changedPaths>
   </component>
@@ -85,7 +85,9 @@
       <workItem from="1626639919846" duration="1798000" />
       <workItem from="1626641764254" duration="1326000" />
       <workItem from="1626677571550" duration="1779000" />
-      <workItem from="1626679389099" duration="632000" />
+      <workItem from="1626679389099" duration="1793000" />
+      <workItem from="1626681215907" duration="1774000" />
+      <workItem from="1626683100423" duration="735000" />
     </task>
     <servers />
   </component>
