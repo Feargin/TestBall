@@ -1,22 +1,25 @@
-using System.Linq;
-using Zenject;
+using Gameplay;
 using GameSateMachine;
 using NaughtyAttributes;
+using Global;
+using Zenject;
 
-
-public class GameInstaller : MonoInstaller
+namespace Installers
 {
-    [Foldout("For developers only!")] public GameState[] States;
-    private GameState _gameplay;
-    public override void InstallBindings()
+    public sealed class GameInstaller : MonoInstaller
     {
-        Container.Bind<StateMachine>().FromNew().AsSingle().NonLazy();
-        Container.BindInstance(States).WhenInjectedInto<GameEntryPoint>();
-        Container.Bind<PlayerStats>().FromNew().AsSingle().NonLazy();
-        foreach (var state in States)
+        [Foldout("For developers only!")] public GameState[] States;
+        private GameState _gameplay;
+        public override void InstallBindings()
         {
-            if (state.Type == TypeStates.Gameplay) _gameplay = state;
+            Container.Bind<StateMachine>().FromNew().AsSingle().NonLazy();
+            Container.BindInstance(States).WhenInjectedInto<GameEntryPoint>();
+            Container.Bind<PlayerStats>().FromNew().AsSingle().NonLazy();
+            foreach (var state in States)
+            {
+                if (state.Type == TypeStates.Gameplay) _gameplay = state;
+            }
+            Container.BindInstance(_gameplay).WhenInjectedInto<LevelCreator>();
         }
-        Container.BindInstance(_gameplay).WhenInjectedInto<LevelCreator>();
     }
 }

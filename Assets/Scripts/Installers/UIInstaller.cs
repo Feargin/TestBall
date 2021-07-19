@@ -1,14 +1,17 @@
+using Gameplay;
 using NaughtyAttributes;
-using UnityEngine;
 using TMPro;
 using Zenject;
 
-public class UIInstaller : MonoInstaller
+namespace Installers
 {
-    [Foldout("For developers only!")] public TMP_Text ScoreText;
-    
-    public override void InstallBindings()
+    public sealed class UIInstaller : MonoInstaller
     {
-        Container.BindInstance(ScoreText).WhenInjectedInto<ScoreZone>();
+        [Foldout("For developers only!")] public TMP_Text ScoreText;
+    
+        public override void InstallBindings()
+        {
+            Container.BindInstance(ScoreText);
+        }
     }
 }

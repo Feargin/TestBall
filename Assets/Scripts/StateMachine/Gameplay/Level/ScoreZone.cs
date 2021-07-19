@@ -1,20 +1,23 @@
 using NaughtyAttributes;
+using Global;
 using UnityEngine;
-using Zenject;
 
-public class ScoreZone : MonoBehaviour
+namespace Gameplay
 {
-    [HorizontalLine(color: EColor.Green)]
-    [Header("For the paws of a game designer.")]
-    [SerializeField] private int _scoreValue = 1;
-    [HorizontalLine(color: EColor.Red)]
-    [Foldout("For developers only!")]
-    [SerializeField] private Chunk _chunk;
-    private void OnTriggerEnter(Collider other)
+    public sealed class ScoreZone : MonoBehaviour
     {
-        if (other.gameObject.GetComponent<Ball>())
+        [HorizontalLine(color: EColor.Green)]
+        [Header("For the paws of a game designer.")]
+        [SerializeField] private int _scoreValue = 1;
+        [HorizontalLine(color: EColor.Red)]
+        [Foldout("For developers only!")]
+        [SerializeField] private Chunk _chunk;
+        private void OnTriggerEnter(Collider other)
         {
-            _chunk.Stats.StatChange(TypeStats.Score, _scoreValue);
+            if (other.gameObject.GetComponent<Ball>())
+            {
+                _chunk.Stats.StatChange(TypeStats.Score, _scoreValue);
+            }
         }
     }
 }

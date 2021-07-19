@@ -459,7 +459,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 12
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2876,7 +2876,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerBall: {fileID: 2024195617}
   GameplayCamera: {fileID: 519420031}
-  BallAnimator: {fileID: 2024195618}
   BallRigidbody: {fileID: 2024195623}
   Prefabs:
   - {fileID: 8052842658730801253, guid: d2e15a956f900854381a8d96babe757a, type: 3}
@@ -3131,11 +3130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcffcd3a0ccc9c540a02a6de9e50651a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &2024195618 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 3906156229230821068, guid: 8bf997477cac7cc4eba1eec55a2de585, type: 3}
-  m_PrefabInstance: {fileID: 3906156230713653486}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2024195622 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3906156229230821064, guid: 8bf997477cac7cc4eba1eec55a2de585, type: 3}

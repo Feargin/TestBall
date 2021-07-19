@@ -1,30 +1,38 @@
 using System;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using Zenject;
 
-public class DisplayStats : MonoBehaviour
+namespace Global
 {
-    private TMP_Text _score;
-    private PlayerStats _stats;
-
-    [Inject]
-    private void Constructor(TMP_Text score, PlayerStats stats)
+    public sealed class DisplayStats : MonoBehaviour
     {
-        _score = score;
-        _stats = stats;
-    }
+        private TMP_Text _score;
+        private PlayerStats _stats;
 
-    private void OnEnable() => _stats.OnStatChange += SetStats;
-    private void OnDisable() => _stats.OnStatChange -= SetStats;
-    
-    private void SetStats(TypeStats type, int value)
-    {
-        _score.text = type switch
+        [Inject]
+        private void Constructor(TMP_Text score, PlayerStats stats)
         {
-            TypeStats.Score => "" + int.Parse(_score.text) + value,
-            TypeStats.Other => throw new Exception("Invalid type!"),
-            _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
-        };
+            _score = score;
+            _stats = stats;
+        }
+
+        private void OnEnable() => _stats.OnStatChange += SetStats;
+        private void OnDisable() => _stats.OnStatChange -= SetStats;
+    
+        private void SetStats(TypeStats type, int value)
+        {
+            switch (type)
+            {
+                case TypeStats.Score:
+                    print(_score.text);
+                    _score.text = "" + (int.Parse(_score.text) + value);
+                    break;
+                case TypeStats.Other:
+                    throw new Exception("Invalid type!");
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
+            }
+        }
     }
 }

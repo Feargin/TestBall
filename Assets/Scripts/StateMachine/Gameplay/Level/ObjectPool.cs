@@ -1,20 +1,23 @@
 using System.Collections.Generic;
 using System.Linq;
 
-public class ObjectPool
+namespace Gameplay
 {
-    private List<Chunk> _chunksPool = new List<Chunk>();
-
-    public void AddChank(Chunk chunk)
+    public class ObjectPool
     {
-        _chunksPool.Add(chunk);
-    }
+        private List<Chunk> _chunksPool = new List<Chunk>();
 
-    public Chunk TakeChunk(int id)
-    {
-        Chunk result = null;
-        foreach (var chunk in _chunksPool.Where(chunk => chunk.Id == id)) { result = chunk; }
-        return result;
-    }
+        public void AddChank(Chunk chunk)
+        {
+            _chunksPool.Add(chunk);
+        }
 
+        public Chunk TakeChunk(int id)
+        {
+            Chunk result = null;
+            foreach (var chunk in _chunksPool.Where(chunk => chunk.Id == id)) { result = chunk; }
+            return result;
+        }
+
+    }
 }

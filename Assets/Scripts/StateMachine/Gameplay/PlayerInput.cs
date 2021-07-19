@@ -1,18 +1,21 @@
 using UnityEngine;
 using Zenject;
 
-public class PlayerInput : MonoBehaviour
+namespace Gameplay
 {
-    private Ball _ball;
+    public sealed class PlayerInput : MonoBehaviour
+    {
+        /*private Ball _ball;
 
-    [Inject]
-    private void Constructor(Ball ball)
-    {
-        _ball = ball;
-    }
+        [Inject]
+        private void Constructor(Ball ball)
+        {
+            _ball = ball;
+        }
     
-    public void PlayerInteraction()
-    {
-        _ball.InvertGravity();
+        public void PlayerInteraction()
+        {
+            _ball.InvertGravity();
+        }*/
     }
 }

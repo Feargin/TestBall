@@ -2,14 +2,17 @@ using GameSateMachine;
 using NaughtyAttributes;
 using UnityEngine;
 
-public class DeathZone : MonoBehaviour
+namespace Gameplay
 {
-    [HorizontalLine(color: EColor.Red)]
-    [Foldout("For developers only!")]
-    [SerializeField] private Chunk _chunk;
-
-    private void OnTriggerEnter(Collider other)
+    public sealed class DeathZone : MonoBehaviour
     {
-        if(other.gameObject.GetComponent<Ball>()) _chunk.State.Machine.SetState(TypeStates.EndGame);
+        [HorizontalLine(color: EColor.Red)]
+        [Foldout("For developers only!")]
+        [SerializeField] private Chunk _chunk;
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if(other.gameObject.GetComponent<Ball>()) _chunk.State.Machine.SetState(TypeStates.EndGame);
+        }
     }
 }
