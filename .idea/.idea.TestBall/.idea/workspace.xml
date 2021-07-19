@@ -21,14 +21,14 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Player/Ball.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/IChunk.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/ILevelCreator.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/Level.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/DeathZone.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/ScoreZone.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Installers/GameInstaller.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Installers/LevelInstaller.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/ObjectPool.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/LevelCreator.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/Chunk.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/ObjectPool.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine/Gameplay/Level/Level.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1vUauNkxVDRSxAnyIS9LLnFTjxt" />
@@ -95,6 +95,7 @@
       <workItem from="1626695385968" duration="1775000" />
       <workItem from="1626703716246" duration="1717000" />
       <workItem from="1626705533315" duration="1005000" />
+      <workItem from="1626712372314" duration="1271000" />
     </task>
     <servers />
   </component>

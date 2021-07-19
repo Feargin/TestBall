@@ -26,7 +26,6 @@ namespace Gameplay
             _chunksPool.Remove(result);
             result.transform.position = position;
             result.gameObject.SetActive(true);
-            Debug.Log(result.gameObject.activeSelf + "" + result.name);
             return result;
         }
     }

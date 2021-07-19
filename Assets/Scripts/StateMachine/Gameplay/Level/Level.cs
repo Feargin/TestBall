@@ -1,3 +1,4 @@
+using ModestTree;
 using NaughtyAttributes;
 using UnityEngine;
 using Zenject;
@@ -28,6 +29,10 @@ namespace Gameplay
             _levelMovement = levelMovement;
             _levelCreator = levelCreator;
             _levelCreator.CameraBounds = _cameraBounds;
+            if (string.IsNullOrEmpty(_seed))
+            {
+                _seed = "" + Random.Range(-999f, 999f);
+            }
             _levelCreator.Seed = _seed;
             _levelCreator.Parent = transform;
             _levelCreator.CountInitChunk = CountInitChunk;
@@ -35,7 +40,6 @@ namespace Gameplay
 
         private void Start()
         {
-            _seed ??= "" + Random.Range(-999f, 999f);
             _cameraBounds.InitBorders();
             _levelCreator.SpawnInitialChunks();
             _rigidbody = GetComponent<Rigidbody>();
