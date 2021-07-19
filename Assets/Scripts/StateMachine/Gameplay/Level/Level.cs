@@ -8,7 +8,7 @@ namespace Gameplay
     public class Level : MonoBehaviour
     {
         private LevelCreator _levelCreator;
-        private CameraBounds _cameraBounds;
+        private ICameraBounds _cameraBounds;
         private Rigidbody _rigidbody;
         private LevelMovement _levelMovement;
 

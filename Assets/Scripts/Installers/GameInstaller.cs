@@ -19,7 +19,7 @@ namespace Installers
             {
                 if (state.Type == TypeStates.Gameplay) _gameplay = state;
             }
-            Container.BindInstance(_gameplay).WhenInjectedInto<LevelCreator>();
+            Container.BindInstance(_gameplay).WhenInjectedInto<ILevelCreator>();
         }
     }
 }

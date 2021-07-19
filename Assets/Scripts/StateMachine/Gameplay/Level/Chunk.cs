@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Gameplay
 {
-    public sealed class Chunk : MonoBehaviour
+    public sealed class Chunk : MonoBehaviour, IChunk
     {
         public TypeChunk Type => _type;
         public int Id
@@ -16,7 +16,7 @@ namespace Gameplay
         }
         public PlayerStats Stats { get; set; }
         public GameState State { get; set; }
-        public CameraBounds CameraBounds { set => _cameraBounds ??= value; }
+        public ICameraBounds CameraBounds { set => _cameraBounds ??= value; }
         public bool IsFirst { set { if (!_isFirst) _isFirst = value; } }
         public ObjectPool Pool { set => _objectPool ??= value; }
         public Transform RightBorder => _rightBorder;
@@ -29,7 +29,7 @@ namespace Gameplay
         [Foldout("For developers only!")]
         [SerializeField] private Transform _rightBorder;
         private int _id = -1;
-        private CameraBounds _cameraBounds;
+        private ICameraBounds _cameraBounds;
         private bool _isFirst;
         private ObjectPool _objectPool;
         private LevelCreator _creator;
@@ -49,9 +49,9 @@ namespace Gameplay
         private void CheckLevelBounds()
         {
             if (!(_rightBorder.position.x < _cameraBounds.LeftBorder.x - 4)) return;
+            gameObject.SetActive(false);
             _objectPool.AddChank(this);
             _creator.SpawnChunk();
-            gameObject.SetActive(false);
         }
     }
 

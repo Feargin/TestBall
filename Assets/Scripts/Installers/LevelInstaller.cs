@@ -16,9 +16,9 @@ namespace Installers
         {
             Container.Bind<LevelCreator>().FromNew().AsSingle().WhenInjectedInto<Level>();
             Container.Bind<CameraBounds>().FromNew().AsSingle().WhenInjectedInto<Level>();
-            Container.Bind<ObjectPool>().FromNew().AsSingle().WhenInjectedInto<LevelCreator>();
+            Container.Bind<ObjectPool>().FromNew().AsSingle().WhenInjectedInto<ILevelCreator>();
             Container.Bind<LevelMovement>().FromNew().AsSingle().WhenInjectedInto<Level>();
-            Container.BindInstance(Prefabs).WhenInjectedInto<LevelCreator>();
+            Container.BindInstance(Prefabs).WhenInjectedInto<ILevelCreator>();
 
             Container.Bind<BallColision>().FromNew().AsSingle().WhenInjectedInto<Ball>().NonLazy();
             Container.BindInstance(GameplayCamera).WhenInjectedInto<CameraBounds>();

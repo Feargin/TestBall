@@ -15,7 +15,6 @@ namespace Gameplay
 
         public Chunk CheckTakeChunk(int id)
         {
-            Debug.Log("pool: " + _chunksPool.Count);
             Chunk result = null;
             foreach (var chunk in _chunksPool.Where(chunk => chunk.Id == id)) { result = chunk; }
             return result;
@@ -25,13 +24,9 @@ namespace Gameplay
             Chunk result = null;
             foreach (var chunk in _chunksPool.Where(chunk => chunk.Id == id)) { result = chunk; }
             _chunksPool.Remove(result);
-            if (result is null)
-            {
-                Debug.Log("Warning!");
-                return null;
-            };
             result.transform.position = position;
             result.gameObject.SetActive(true);
+            Debug.Log(result.gameObject.activeSelf + "" + result.name);
             return result;
         }
     }

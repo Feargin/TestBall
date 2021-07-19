@@ -1,16 +1,18 @@
+using System;
 using System.Collections.Generic;
 using GameSateMachine;
 using Global;
 using UnityEngine;
 using Zenject;
+using Object = UnityEngine.Object;
 using Random = System.Random;
 using Vector3 = UnityEngine.Vector3;
 
 namespace Gameplay
 {
-   public sealed class LevelCreator
+   public sealed class LevelCreator : ILevelCreator
    {
-      public CameraBounds CameraBounds { set => _cameraBounds ??= value; }
+      public ICameraBounds CameraBounds { set => _cameraBounds ??= value; }
       public string Seed { set => _seed ??= value; }
       public Transform Parent { set => _parent ??= value; }
       public int CountInitChunk 
@@ -19,9 +21,9 @@ namespace Gameplay
       }
 
       private Chunk[] _prefabs;
-      private List<Chunk> _activeChunks = new List<Chunk>();
+      private List<IChunk> _activeChunks = new List<IChunk>();
       private ObjectPool _objectPool;
-      private CameraBounds _cameraBounds;
+      private ICameraBounds _cameraBounds;
       private string _seed;
       private Random _randomHash;
       private int _countInitChunk;
@@ -46,8 +48,12 @@ namespace Gameplay
          var position = new Vector3(_cameraBounds.LeftBorder.x - 1, 0, 0);
          for (var index = 0; index < _countInitChunk; index++)
          {
-            var randomValue = _randomHash.Next(0, _prefabs.Length);
-            if (index != 0) position = _activeChunks[index - 1].RightBorder.position;
+            var randomValue = 0;
+            if (index != 0)
+            {
+               randomValue = _randomHash.Next(0, _prefabs.Length);
+               position = _activeChunks[index - 1].RightBorder.position;
+            }
             var chunk =  Spawn(randomValue, position);
             _activeChunks.Add(chunk);
             if (index == 0) SetIsFirst();
