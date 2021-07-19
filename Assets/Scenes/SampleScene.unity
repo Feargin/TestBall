@@ -2673,7 +2673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _seed: 
-  CountInitChunk: 10
+  CountInitChunk: 4
   _speed: 3
 --- !u!54 &1908294354
 Rigidbody:
